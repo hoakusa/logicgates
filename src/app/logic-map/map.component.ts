@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 var $ = require('jquery');
-var jsPlumb = require('jsplumb');
+declare var jsPlumb: any;
 
 @Component({
   selector: 'logic-map',
@@ -54,9 +54,10 @@ export class MapComponent implements OnInit {
     ]
   }
 
-  ngOnInit() {
-    jsPlumb.ready(function () {
-      console.log("this");
-    });
+  ngOnInit(): void {
+    jsPlumb.ready(function() {
+      jsPlumb.draggable("1", { grid:[10,10] });     
+    }); 
   }
+
 }

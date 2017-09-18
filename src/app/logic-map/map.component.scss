@@ -28,3 +28,11 @@
     height: 560px;
     background: url('/src/assets/images/grid.png');
 }
+
+.item {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border: 1px solid blue;
+    float: left;
+}
