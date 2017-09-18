@@ -37,6 +37,16 @@ module.exports = {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw-loader'
+      },
+      // Sass loader
+      {
+        test: /\.scss$/,
+        use: ['raw-loader', 'sass-loader']
+      },
+      // Bootstrap 4 loader
+      {
+        test: /bootstrap\/dist\/js\/umd\//,
+        use: 'imports-loader?jQuery=jquery'
       }
     ]
   },
