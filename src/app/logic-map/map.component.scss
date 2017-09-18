@@ -27,12 +27,22 @@
     margin: 3rem 0;
     height: 560px;
     background: url('/src/assets/images/grid.png');
+    border: solid 1px #dddddd;
 }
 
 .item {
     position: absolute;
     height: 80px;
     width: 80px;
-    border: 1px solid blue;
+    border: 1px solid #556372;
     float: left;
+    cursor: move;
+    background-color: #EDEDEE;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    -webkit-transition: box-shadow .3s ease-out;
+    -ms-transition: box-shadow .3s ease-out;
+    transition: box-shadow .3s ease-out;
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
 }

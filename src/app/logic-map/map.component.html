@@ -4,7 +4,8 @@
   <!-- List of Gates -->
   <div class="d-flex flex-wrap">
     <div class="card bg-light mb-3 gate-card"
-        *ngFor="let gate of gateCategories">
+        *ngFor="let gate of gateCategories"
+        [id]="gate.name">
       <div class="card-header">{{gate.name}}</div>
       <div class="card-body">
         <img [src]="gate.image" alt="..."/>
@@ -14,5 +15,6 @@
 </div>
 
 <div class="diagram" id="diagramContainer">
-  <img class="item" id="1" src="/src/assets/images/AND.png" />
+  <img class="item" id="0" src="/src/assets/images/AND.png" />
+  <img class="item" id="1" src="/src/assets/images/NOR.png" />
 </div>
