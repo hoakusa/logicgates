@@ -1,52 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+var $ = require('jquery');
+var jsPlumb = require('jsplumb');
 
 @Component({
   selector: 'logic-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent { 
+export class MapComponent implements OnInit { 
   gateCategories: Array<Object>;
+  base: String;
 
   constructor() {
+    this.base = '/src/assets/images/';
     this.gateCategories = [
       {
         id: 0,
         name: 'NOT',
-        image: 'images/NOT.png',
+        image: this.base + 'NOT.png',
         numberIN: 1,
         numberOUT: 1
       },{
         id: 1,
         name: 'AND',
-        image: '',
+        image: this.base + 'AND.png',
         numberIN: 2,
         numberOUT: 1
       },{
         id: 2,
         name: 'NAND',
-        image: '',
+        image: this.base + 'NAND.png',
         numberIN: 2,
         numberOUT: 1
       },{
         id: 3,
         name: 'OR',
-        image: '',
+        image: this.base + 'OR.png',
         numberIN: 2,
         numberOUT: 1
       },{
         id: 4,
         name: 'NOR',
-        image: '',
+        image: this.base + 'NOR.png',
         numberIN: 2,
         numberOUT: 1
       },{
         id: 5,
         name: 'XOR',
-        image: '',
+        image: this.base + 'XOR.png',
         numberIN: 2,
         numberOUT: 1
       }
     ]
+  }
+
+  ngOnInit() {
+    jsPlumb.ready(function () {
+      console.log("this");
+    });
   }
 }

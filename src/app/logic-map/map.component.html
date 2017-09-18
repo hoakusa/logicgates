@@ -1,8 +1,9 @@
-<div class="bd-example">
+<div class="bd-example library">
+  <div class="bd-title">Library</div>
 
-  <div>Library</div>
+  <!-- List of Gates -->
   <div class="d-flex flex-wrap">
-    <div class="card bg-light mb-3"
+    <div class="card bg-light mb-3 gate-card"
         *ngFor="let gate of gateCategories">
       <div class="card-header">{{gate.name}}</div>
       <div class="card-body">
@@ -10,5 +11,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="diagram">
 
 </div>

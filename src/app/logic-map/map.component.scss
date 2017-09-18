@@ -1,6 +1,30 @@
 .bd-example {
     position: relative;
-    margin: 1rem -15px;
-    border: solid 1px #f7f7f9;
-    padding: 1.5rem;
+    margin: 1rem 0;
+    border: solid 1px #dddddd;
+    padding: 4rem 1rem 1rem 1rem;
+    .bd-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.5rem 1.5rem;
+        background-color: #34495e;
+        z-index: 1;
+        min-width: 120px;
+        color: #fff;
+    }
+}
+
+.gate-card {
+    margin: 0 0.5rem;
+    cursor: move;
+    img {
+        height: 60px;
+    }
+}
+
+.diagram {
+    margin: 3rem 0;
+    height: 560px;
+    background: url('/src/assets/images/grid.png');
 }

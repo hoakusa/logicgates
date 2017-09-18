@@ -6,7 +6,11 @@ var helpers = require('./helpers');
 module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
+    'vendor': [
+      './src/vendor.ts',
+      'jsplumb/dist/css/jsplumbtoolkit-defaults.css',
+      'jsplumb/dist/js/jsplumb.min.js'
+    ],
     // add bootstrap-loader
     'twbs': 'bootstrap-loader',
     'app': './src/main.ts'
