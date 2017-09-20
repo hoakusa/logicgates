@@ -5,7 +5,8 @@
   <div class="d-flex flex-wrap">
     <div class="card bg-light mb-3 gate-card"
         *ngFor="let gate of gateCategories"
-        [id]="gate.name">
+        [id]="gate.name"
+        draggable="true" (dragstart)="drag('', $event)">
       <div class="card-header">{{gate.name}}</div>
       <div class="card-body">
         <img [src]="gate.image" alt="..."/>
@@ -13,8 +14,23 @@
     </div>
   </div>
 </div>
-
-<div class="diagram" id="diagramContainer">
-  <img class="item" id="0" src="/src/assets/images/AND.png" />
-  <img class="item" id="1" src="/src/assets/images/NOR.png" />
+{{gates.length}}
+<div class="diagram" id="diagramContainer"
+    (drop)="drop('', $event)"
+    (dragover)="allowDrop('', $event)">
+  <div #logicgates
+      *ngFor="let gate of gates; let last = last"
+      class="item" [id]="gate.id">
+    <span class="delete-button" (click)="delete(gate.id)">X</span>
+    <img src="/src/assets/images/{{gate.type}}.png" />
+  </div>
+  <!--<div class="item" id="0">
+    <span class="delete-button" (click)="delete(0)">X</span>
+    <img src="/src/assets/images/AND.png" />
+  </div>
+  <div class="item" id="1">
+    <span class="delete-button" (click)="delete(1)">X</span>
+    <img src="/src/assets/images/OR.png" />
+  </div>-->
 </div>
+
