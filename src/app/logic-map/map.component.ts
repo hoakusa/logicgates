@@ -116,16 +116,21 @@ export class MapComponent implements OnInit {
   }
 
   drag(widget: any, event: any) {
-    event.dataTransfer.setData("text", event.target.id);
+    event.dataTransfer.setData('text', event.target.id);
   }
 
   drop(widget: any, event: any) {
     event.preventDefault();
-    
+    console.log('drag ' + data);
+
     // Get type of gate
-    // data : "AND", "OR", "NOR", "XOR", "NOT"
-    var data = event.dataTransfer.getData("text");
-    console.log(data); 
+    // data : "NOT", "AND", "NAND", "OR", "NOR", "XOR"
+    var data = event.dataTransfer.getData('text');
+    if (data === 'NOT' || data === 'AND' || data === 'NAND' || data === 'OR' || data === 'NOR' || data === 'XOR') {
+      console.log('123');
+      this.update(data);
+    }
+    
     
     // var str = '<div class="item" id="' + this.autoinc + '">'
     //         + '<span class="delete-button" onClick="delete(' + this.autoinc + ')">X</span>'
@@ -136,7 +141,7 @@ export class MapComponent implements OnInit {
     // event.target.appendChild(appendGate);
     // var target = document.getElementById('diagramContainer');
     // target.insertAdjacentHTML('beforeend', str);
-    this.update(data);
+    
   }
 
   delete(getId: number) {
@@ -183,7 +188,7 @@ function styleGate(id: number, type: String) {
     };
     
     // NOT gate has only 1 left input
-    if (type === "NOT") {
+    if (type === 'NOT') {
       // Left Anchor: y = 0.5
       jsPlumb.addEndpoint(target, { 
         anchors: [0, 0.5, 1, 0]
