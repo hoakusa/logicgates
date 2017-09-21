@@ -1,5 +1,5 @@
 # Logic gates simulator
-
+View [Demo](http://logicgates.hoakusa.com/)
 A basic logic schematic web page by Angular 2 Typescript and webpack.
 Feature:
 * Drag and drop logic gate to diagram.
