@@ -30,9 +30,7 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
 
 * [Getting Started](#getting-started)
     * [Dependencies](#dependencies)
-    * [Installing](#installing)
     * [Developing](#developing)
-    * [Testing](#testing)
     * [Production](#production)
 * [Documentation](#documentation)
 
@@ -51,12 +49,6 @@ Start run development mode:
 * `npm start`
 
 It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The application can be checked at `http://localhost:8080`.
-
-## Testing
-
-#### 1. Unit Tests
-
-* single run: `npm test`
 
 ## Production
 
