@@ -1,6 +1,6 @@
 {
   "name": "logicgates",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "Logic gate simulator",
   "scripts": {
@@ -25,7 +25,7 @@
     "e2e": "ng e2e"
   },
   "keywords": [],
-  "author": "",
+  "author": "An Pham",
   "license": "MIT",
   "dependencies": {
     "@angular/animations": "~4.3.1",

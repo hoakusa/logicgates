@@ -15,6 +15,7 @@
   </div>
 </div>
 
+<!-- Diagram Interface -->
 <div class="diagram" id="diagramContainer"
     (drop)="drop('', $event)"
     (dragover)="allowDrop('', $event)">
@@ -24,13 +25,5 @@
     <span class="delete-button" (click)="delete(gate.id)">X</span>
     <img src="/src/assets/images/{{gate.type}}.png" />
   </div>
-  <!--<div class="item" id="0">
-    <span class="delete-button" (click)="delete(0)">X</span>
-    <img src="/src/assets/images/AND.png" />
-  </div>
-  <div class="item" id="1">
-    <span class="delete-button" (click)="delete(1)">X</span>
-    <img src="/src/assets/images/OR.png" />
-  </div>-->
 </div>
 

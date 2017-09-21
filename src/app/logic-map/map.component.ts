@@ -32,7 +32,6 @@ export class MapComponent implements OnInit {
 
   constructor() {
     this.base = '/src/assets/images/';
-
     this.gateCategories = [
       {
         id: 0,
@@ -72,27 +71,15 @@ export class MapComponent implements OnInit {
         numberOUT: 1
       }
     ];
-
     // var autoinc is a represent for auto increment gate_id, unique, auto increment by 1
-    // At initial state, there are two gates already: Input and Output -> set autoinc = 2
-    this.autoinc = 2;
-
-    this.gates = [
-      {
-        id: 0,
-        type: "AND"
-      },{
-        id: 1,
-        type: "OR"
-      }
-    ];
+    this.autoinc = 0;
+    // Array for list of gates
+    this.gates = [];
   }
 
   ngOnInit() {
     jsPlumb.ready(function() {
       jsPlumb.setContainer('diagramContainer');
-      styleGate(0, 'AND');
-      styleGate(1, 'OR');
     });
   }
 
@@ -121,31 +108,16 @@ export class MapComponent implements OnInit {
 
   drop(widget: any, event: any) {
     event.preventDefault();
-    console.log('drag ' + data);
-
     // Get type of gate
     // data : "NOT", "AND", "NAND", "OR", "NOR", "XOR"
     var data = event.dataTransfer.getData('text');
+    // Create new gate when drag a valid element from library - Disable default image drag
     if (data === 'NOT' || data === 'AND' || data === 'NAND' || data === 'OR' || data === 'NOR' || data === 'XOR') {
-      console.log('123');
       this.update(data);
-    }
-    
-    
-    // var str = '<div class="item" id="' + this.autoinc + '">'
-    //         + '<span class="delete-button" onClick="delete(' + this.autoinc + ')">X</span>'
-    //         + '<img src="' + this.base + data + '.png"/></div>';
-    // var appendGate = document.createElement('div');
-    // appendGate.innerHTML = str;    
-    // console.log(appendGate);
-    // event.target.appendChild(appendGate);
-    // var target = document.getElementById('diagramContainer');
-    // target.insertAdjacentHTML('beforeend', str);
-    
+    }    
   }
 
   delete(getId: number) {
-    console.log('delete ' + getId);
     var index = this.gates.findIndex(gate => gate.id === getId);
     this.gates.splice(index, 1);
     jsPlumb.remove(getId.toString());
@@ -162,9 +134,9 @@ export class MapComponent implements OnInit {
 
 function styleGate(id: number, type: String) {
     var target = id.toString();
-    console.log('style ' + target);
 
-    // Draw Connection
+    // To draw Connection, click mouse and move from an Output to an Input
+    // Output Anchor must be a source - Input Anchor must be a target
     var input = {
       isSource: false,
       isTarget: true,
@@ -187,6 +159,15 @@ function styleGate(id: number, type: String) {
       connectorHoverStyle:{ stroke: '#2ecc71', strokeWidth: 5 }
     };
     
+    /**
+     * Explain Anchor syntax [x, y, dx, dy]:
+     * x and y: are coordinates in the interval [0,1] specifying the position of the anchor
+     * dx and dy: which specify the orientation of the curve incident to the anchor,
+     *            can have a value of 0, 1 or -1
+     * For example, [0, 0.5, -1, 0] defines a Left anchor with a connector curve that emanates leftward from the anchor.
+     * Similarly, [0.5, 0, 0, -1] defines a Top anchor with a connector curve emanating upwards.
+     */
+
     // NOT gate has only 1 left input
     if (type === 'NOT') {
       // Left Anchor: y = 0.5
@@ -214,6 +195,5 @@ function styleGate(id: number, type: String) {
     jsPlumb.draggable(target, { 
       grid:[5,5],
       containment:true
-    });
-    
+    });    
   }
