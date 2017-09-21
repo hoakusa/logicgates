@@ -68,11 +68,11 @@ You can now go to `/dist` and deploy that to your server!
 
 ## Documentation
 
-1. Routing:
+#### 1. Routing:
 '/' is the main home of application, go and modify routing by edit [`app-routing.module.ts`](/src/app/app-routing.module.ts).
-2. Library:
+#### 2. Library:
 This application uses [jsPlumb](https://github.com/jsplumb/jsPlumb) as core library to perform gate connection and behaviors inside diagram. Read more at [documentation](https://jsplumbtoolkit.com/community/doc/home.html).
-3. Intruction video:
+#### 3. Intruction video:
 Watch intruction video at the end of webpage to understand how application works.
 
 > Editor: [Visual Studio Code](https://code.visualstudio.com/) 
